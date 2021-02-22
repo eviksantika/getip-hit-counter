@@ -1,8 +1,12 @@
-api:
-  build: .
-  ports:
-   - "8080:8080"
-  links:
-   - redis
-redis:
-  image: redis:latest
+version: "3.7"
+services:
+  api:
+    container_name: getip-hit-counter
+    build: .
+    ports:
+    - "80:80"
+    links:
+    - redis
+  redis:
+    container_name: redis-hit-counter
+    image: redis:latest
