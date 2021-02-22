@@ -35,7 +35,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", handle)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":80", nil))
 }
 
 func handle(w http.ResponseWriter, r *http.Request) {

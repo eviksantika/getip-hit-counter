@@ -9,7 +9,7 @@ RUN CGO_ENABLED=0 go build -o hit-counter main.go
 
 FROM alpine:latest
 # Export Listen port
-EXPOSE 8080
+EXPOSE 80
 
 # Copy file from build image
 COPY --from=build /go/src/github.com/apackeer/hit-counter /opt

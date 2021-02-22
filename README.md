@@ -8,5 +8,5 @@ Build and start the hit-counter and redis containers:
 
 ### Using Hit-Counter
 
-    $ curl http://<IP-Address>:8080
+    $ curl http://<IP-Address>
     {"User Address ":"<IP-Address>","Hit ":1}
