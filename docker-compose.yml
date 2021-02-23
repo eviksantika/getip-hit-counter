@@ -1,12 +1,29 @@
 version: "3.7"
 services:
-  api:
-    container_name: getip-hit-counter
+  api1:
+    container_name: getip-hit-counter-1
     build: .
-    ports:
-    - "80:80"
+    #ports:
+    #- "8080:8080"
     links:
-    - redis
+      - redis
+  api2:
+    container_name: getip-hit-counter-2
+    build: .
+    #ports:
+    #- "8080:8080"
+    links:
+      - redis
+  loadbalancer:
+    build:
+      context: .
+      dockerfile: ./LB.Dockerfile
+    tty: true
+    links:
+      - api1
+      - api2
+    ports:
+      - '81:81'
   redis:
     container_name: redis-hit-counter
     image: redis:latest
